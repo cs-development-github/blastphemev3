@@ -1,0 +1,26 @@
+version: '3.5'
+
+services:
+  db:
+    image: 'mysql:5.7'
+    ports:
+      - '3307:3306'
+    environment:
+      - 'MYSQL_ROOT_PASSWORD=toor'
+      - 'MYSQL_DATABASE=blastpheme'
+      - 'MYSQL_USER=blastpheme'
+      - 'MYSQL_PASSWORD=blastpheme'
+
+  mailhog:
+    image: mailhog/mailhog
+    ports:
+      - '1026:1025'
+      - '8026:8025'
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    depends_on:
+      - db
+    environment:
+      - 'MYSQL_ROOT_PASSWORD=toor'
+    ports:
+      - '8586:80'
