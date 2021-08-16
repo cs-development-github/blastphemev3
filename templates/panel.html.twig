@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="{{ app.request.locale }}">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="{{ asset('build/images/bp_logo.svg') }}" sizes="32x32">
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('panel') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('panel') }}
+        {% endblock %}
+    </head>
+    <body>
+        <div id="db-wrapper">
+          
+                <nav class="navbar-vertical navbar">
+                    <div class="nav-scroller">
+                        <!-- Brand logo -->
+                        <a class="navbar-brand" href="{{ path('app_panel') }}">
+                            <img src="{{ asset('build/images/bp_logo.svg') }}" alt="Blastpheme" /><h4>Blastpheme</h4>
+                        </a>
+                        <!-- Navbar nav -->
+                        <ul class="navbar-nav flex-column" id="sideNavbar">
+                            <li class="nav-item">
+                                <a class="nav-link list-group-item list-group-item-action list-group-item-light p-3{{ app.request.attributes.get('_route') starts with 'my_account' ? ' active' : '' }}" href="">
+                                    <i class="fas fa-user-circle mx-2"></i> Mon compte
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link list-group-item list-group-item-action list-group-item-light p-3{{ app.request.attributes.get('_route') starts with 'user' ? ' active' : '' }}" href="">
+                                    <i class="fas fa-users mx-2"></i> Utilisateurs
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link list-group-item list-group-item-action list-group-item-light p-3 collapsed{{ app.request.attributes.get('_route') starts with 'ecriture' ? ' active' : '' }}" href="#!" data-bs-toggle="collapse" data-bs-target="#navEcriture" aria-expanded="false" aria-controls="navEcriture">
+                                    <i class="fas fa-edit mx-2"></i> Ecriture
+                                </a>
+                                <div id="navEcriture" class="collapse" data-bs-parent="#sideNavbar">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link list-group-item list-group-item-action list-group-item-light p-3" href="">
+                                                <span class="px-1"><i class="fas fa-pen-fancy"></i> Ajouter un article </span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link list-group-item list-group-item-action list-group-item-light p-3" href="">
+                                                <span class="px-1"><i class="far fa-images"></i> Ajouter une galerie </span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link list-group-item list-group-item-action list-group-item-light p-3{{ app.request.attributes.get('_route') starts with 'language' ? ' active' : '' }}" href="">
+                                    <i class="fas fa-tag mx-2"></i> Tags
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link list-group-item list-group-item-action list-group-item-light p-3{{ app.request.attributes.get('_route') starts with 'category' ? ' active' : '' }}" href="">
+                                    <i class="far fa-handshake mx-2"></i> Partenariats
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link list-group-item list-group-item-action list-group-item-light p-3{{ app.request.attributes.get('_route') starts with 'interest_point' ? ' active' : '' }}" href="">
+                                    <i class="fas fa-calendar-plus mx-2"></i> Evenements
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link list-group-item list-group-item-action list-group-item-light p-3{{ app.request.attributes.get('_route') starts with 'statistic' ? ' active' : '' }}" href="">
+                                   <i class="fas fa-eye mx-2"></i> Preview
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link list-group-item list-group-item-action list-group-item-light p-3{{ app.request.attributes.get('_route') starts with 'tools' ? ' active' : '' }}" href="">
+                                    <i class="fas fa-cogs mx-2"></i> Paramètre
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link list-group-item list-group-item-action list-group-item-light p-3{{ app.request.attributes.get('_route') starts with 'statistic' ? ' active' : '' }}" href="">
+                                    <i class="far fa-chart-bar mx-2"></i> Statistiques
+                                </a>
+                            </li>
+
+                        </ul>
+                        <!-- App version -->
+                        <div class="app-version text-muted">
+                            Application version : {{ app_version }}
+                        </div>
+                    </div>
+                </nav>
+     
+            <div id="page-content{{ is_granted('ROLE_ADMIN') ? '' : ' m0' }}">
+                {% if is_granted('ROLE_ADMIN') %}
+                    <div class="header">
+                    <!-- navbar -->
+                    <nav class="navbar-classic navbar navbar-expand-lg">
+                        <a id="nav-toggle" href="#">
+                            <i id="button" class="fas fa-bars"></i>
+                        </a>
+                        <!--Navbar nav -->
+                        <ul class="navbar-nav navbar-right-wrap ms-auto d-flex nav-top-wrap">
+                            <!-- List -->
+                            <li class="rounded-circle mx-2">
+                                <div class="avatar avatar-md avatar-indicators avatar-online">
+                                    {# <img alt="avatar" src="{{ asset(path_upload_image_user ~ app.user.photo) }}" class="rounded-circle" /> #}
+                                </div>
+                            </li>
+                            <li class="rounded-circle">
+                                <a class="btn btn-light btn-icon rounded-circle indicator indicator-primary text-muted" href="{{ path('app_logout') }}">
+                                    <i class="fas fa-power-off fa-sm"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                {% endif %}
+                <div class="container-fluid mt-n22 px-6">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-12">
+                            {% include '_flashes.html.twig' %}
+                            {% block content %}{% endblock %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+// Boostrap
+@import "~bootstrap/scss/bootstrap";
+@import "~bootstrap/scss/bootstrap-utilities";
+@import "~bootstrap/scss/bootstrap-reboot";
+@import "~bootstrap/scss/bootstrap-grid";
+// FontAwesome
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/brands";
+@import "~@fortawesome/fontawesome-free/scss/regular";
+//random
+@import "variables";
+@import "_navbar-vertical.scss";
+@import "_navbar.scss";
+@import "_layout.scss";
+@import "_nav.scss";
+@import "_avatar.scss";
+body {
+    font-family: Inter, "sans-serif";
+}
+
+.px-6 {
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+}
+
+.mt-n22 {
+    margin-top: 1rem !important;
+}
+
+.app-version {
+    font-size: 0.65rem;
+    padding: 2px 5px;
+    float: right;
+}
