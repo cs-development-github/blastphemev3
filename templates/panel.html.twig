@@ -24,7 +24,7 @@
                         <!-- Navbar nav -->
                         <ul class="navbar-nav flex-column" id="sideNavbar">
                             <li class="nav-item">
-                                <a class="nav-link list-group-item list-group-item-action list-group-item-light p-3{{ app.request.attributes.get('_route') starts with 'my_account' ? ' active' : '' }}" href="">
+                                <a class="nav-link list-group-item list-group-item-action list-group-item-light p-3{{ app.request.attributes.get('_route') starts with 'my_account' ? ' active' : '' }}" href="{{ path('my_account_index') }}">
                                     <i class="fas fa-user-circle mx-2"></i> Mon compte
                                 </a>
                             </li>

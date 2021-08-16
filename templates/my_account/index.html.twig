@@ -1,0 +1,21 @@
+{% extends 'panel.html.twig' %}
+
+{% block title %}Mon compte{% endblock %}
+
+{% block content %}
+    <div class="text-center container-fluid">
+        <div class="text-center row"><h1>Profil de : {{ app.user.name }}</h1></div>
+        <div class="text-centerrow my-2">Email : {{ app.user.email }}</div>
+        <div class="text-centerrow my-2">Nom : {{ app.user.name }}</div>
+        <div class="text-centerrow my-2">Description : {{ app.user.description }}</div>
+        <img src="{{ asset(path_upload_image_user ~ app.user.photo) }}"  alt="{{ app.user.name }}" width="200px">
+    </div>
+    
+    <div class="d-flex justify-content-center" >
+        <a class="btn btn-primary my-2" href="{{ path('my_account_edit') }}">Modifier le profil </a>
+    </div>
+   
+
+
+   
+{% endblock %}
