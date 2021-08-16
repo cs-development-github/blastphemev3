@@ -10,7 +10,6 @@ services:
       - 'MYSQL_DATABASE=blastpheme'
       - 'MYSQL_USER=blastpheme'
       - 'MYSQL_PASSWORD=blastpheme'
-
   mailhog:
     image: mailhog/mailhog
     ports:
