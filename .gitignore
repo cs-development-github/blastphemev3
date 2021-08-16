@@ -18,7 +18,7 @@
 /phpunit.xml
 .phpunit.result.cache
 ###< phpunit/phpunit ###
-
+public/uploads/
 ###> symfony/webpack-encore-bundle ###
 /node_modules/
 /public/build/

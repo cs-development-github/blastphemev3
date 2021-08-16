@@ -2,6 +2,7 @@ twig:
     default_path: '%kernel.project_dir%/templates'
     globals:
         app_version: '%env(APP_VERSION)%'
+        path_upload_image_user: '%upload.user%'
 when@test:
     twig:
         strict_variables: true
