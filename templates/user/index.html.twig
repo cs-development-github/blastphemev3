@@ -1,0 +1,32 @@
+{% extends 'panel.html.twig' %}
+
+{% block title %}Panel - Utilisateur{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('lightbox') }}
+    {{ encore_entry_link_tags('datatables') }}
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('lightbox') }}
+    {{ encore_entry_script_tags('datatables') }}
+    <script src="{{asset('bundles/datatables/js/datatables.js') }}" defer></script>
+    <script>
+        window.onload = function () {
+            $('#users').initDataTables({{ datatable_settings(dataTableClient) }});
+        };
+    </script>
+{% endblock %}
+
+{% block content %}
+    <div class="d-flex justify-content-between align-items-center mt-3 mb-3">
+        <h1>Utilisateurs</h1>
+    </div>
+
+    <div id="users" class="d-flex justify-content-center w100">
+        <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+{% endblock %}

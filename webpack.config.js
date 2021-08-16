@@ -22,6 +22,8 @@ Encore
  */
 .addEntry('app', './assets/app.js')
     .addEntry('panel', './assets/panel.js')
+    .addEntry('datatables', './assets/datatables.js')
+    .addEntry('lightbox', './assets/lightbox.js')
 
 .addStyleEntry('login', './assets/styles/login.scss')
 
