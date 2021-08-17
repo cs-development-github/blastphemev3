@@ -55,15 +55,7 @@ class RegistrationController extends AbstractController
            
            $photo = $form->get('photo')->getData();
            $user->setPhoto($uploadService->upload($photo, $this->uploadImageUser));
-            // $photo = $form->get('photo')->getData();
-            // $fichier = md5(uniqid()) . '.' . $photo->guessExtension();
 
-            // $photo->move(
-            //     $this->getParameter('upload.image.user'),
-            //     $fichier
-            // );
-
-            // $user->setPhoto($fichier);
 
             $user->setPassword(
                 $passwordEncoder->encodePassword(

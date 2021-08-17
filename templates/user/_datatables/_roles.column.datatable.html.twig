@@ -1,0 +1,9 @@
+{% if row.roles[0] == 'ROLE_APOCRYPHE' %}
+    Apocryphe du dimanche
+{% elseif row.roles[0] == 'ROLE_SOUILLEUR' %}
+    Souilleur de Bénitier
+{% elseif row.roles[0] == 'ROLE_ADMIN' %}
+    Grand Blastphémateur
+{% else %}
+    Problème de role
+{% endif %}

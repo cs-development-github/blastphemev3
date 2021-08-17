@@ -29,7 +29,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link list-group-item list-group-item-action list-group-item-light p-3{{ app.request.attributes.get('_route') starts with 'user' ? ' active' : '' }}" href="">
+                                <a class="nav-link list-group-item list-group-item-action list-group-item-light p-3{{ app.request.attributes.get('_route') starts with 'user' ? ' active' : '' }}" href="{{ path('user_index') }}">
                                     <i class="fas fa-users mx-2"></i> Utilisateurs
                                 </a>
                             </li>
