@@ -31,6 +31,14 @@ class UserDatatables implements DataTableTypeInterface
                 'searchable' => true,
                 'orderable' => true,
             ])
+            ->add('roles', TwigColumn::class, [
+                'label' => 'Role',
+                'template' => 'user/_datatables/_roles.column.datatable.html.twig',
+                'visible' => true,
+                'orderable' => false,
+                'searchable' => false,
+                'globalSearchable' => false,
+            ])
             ->add('photo', TwigColumn::class, [
                 'label' => 'Photo de profil',
                 'template' => 'user/_datatables/_picture.column.datatable.html.twig',

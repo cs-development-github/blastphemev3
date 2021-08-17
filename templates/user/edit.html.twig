@@ -1,0 +1,16 @@
+{% extends 'panel.html.twig' %}
+
+{% block title %}Modification - Utilisateur{% endblock %}
+
+{% block content %}
+    <h1>Modification</h1>
+
+    {{ form_start(form) }}
+        {{ form_row(form.email) }}
+        {{ form_row(form.roles) }}
+        {{ form_row(form.name) }}
+        {{ form_row(form.description) }}
+        {{ form_row(form.photo) }}
+        <button type="submit" class="btn btn-primary my-2">Modifier le profil</button>
+    {{ form_end(form) }}
+{% endblock %}

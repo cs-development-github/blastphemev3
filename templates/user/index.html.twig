@@ -20,9 +20,16 @@
 {% endblock %}
 
 {% block content %}
-    <div class="d-flex justify-content-between align-items-center mt-3 mb-3">
-        <h1>Utilisateurs</h1>
-    </div>
+	<div class="d-flex justify-content-between align-items-center mt-3 mb-3">
+		<h1>Utilisateur</h1>
+		<button type="button" class="btn btn-primary" onclick="openModal('utilisateur-new', {
+				'title': 'Ajouter un utilisateur',
+				'route': '{{ path('user_new') }}',
+				'size': 'extraLarge',
+				}); return false;">
+			<i class="fas fa-plus fa-fw"></i> Nouveux utilisateur
+		</button>
+	</div>
 
     <div id="users" class="d-flex justify-content-center w100">
         <div class="spinner-border" role="status">
