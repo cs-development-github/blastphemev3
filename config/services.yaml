@@ -5,6 +5,8 @@
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
     upload.user: 'uploads/user/'
+    upload.couverture: 'uploads/articleCover/'
+    upload.articleContent: 'uploads/articleContent/'
 services:
     # default configuration for services in *this* file
     _defaults:
@@ -13,6 +15,8 @@ services:
         bind:
             $oldDatabase: '%env(DATABASE_LEGACY)%'
             $uploadImageUser: '%kernel.project_dir%/public/%upload.user%'
+            $uploadArticleCover: '%kernel.project_dir%/public/%upload.couverture%'
+            $uploadArticleContent: '%kernel.project_dir%/public/%upload.articleContent%'
 
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name

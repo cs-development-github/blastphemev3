@@ -11,6 +11,8 @@ require('bootstrap');
 import './bootstrap';
 import './main';
 import './panel';
+import './selectTag';
+import './paragraphe';
 
 
 console.debug('panel.js loaded');

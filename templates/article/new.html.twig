@@ -1,0 +1,13 @@
+{{form_start(form)}}
+   {{ form_row(form.titre) }}
+        {{ form_row(form.accroche) }}
+        {{ form_row(form.image) }}
+        {{ form_row(form.type) }}
+
+        <div id="tags" data-prototype="{{form_row(form.tags.vars.prototype)|e('html_attr') }}">
+            {{ form_row(form.tags) }}
+            <span></span>
+        </div>
+
+        
+{{form_end(form)}}

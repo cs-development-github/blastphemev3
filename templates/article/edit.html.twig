@@ -1,0 +1,17 @@
+{% extends 'panel.html.twig' %}
+
+{% block title %}Modification - Article{% endblock %}
+
+{% block content %}
+    <h1>Modification</h1>
+
+    {{ form_start(form) }}
+        {{form_row(form.titre)}}
+        {{form_row(form.accroche)}}
+        {{form_row(form.image)}}
+        {{form_row(form.type)}}
+        {{form_row(form.tags)}}
+
+        <button type="submit" class="btn btn-primary my-2">Modifier l'article</button>
+    {{ form_end(form) }}
+{% endblock %}
