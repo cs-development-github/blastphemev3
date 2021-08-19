@@ -1,0 +1,13 @@
+{% extends 'panel.html.twig' %}
+
+{% block title %}Modification - Tag{% endblock %}
+
+{% block content %}
+    <h1>Modification</h1>
+
+    {{ form_start(form) }}
+        {{ form_row(form.libelle) }}
+
+        <button type="submit" class="btn btn-primary my-2">Modifier le tag</button>
+    {{ form_end(form) }}
+{% endblock %}

@@ -30,14 +30,10 @@ class Tag
      */
     private $articles;
 
+
     public function __construct()
     {
         $this->articles = new ArrayCollection();
-    }
-
-    public function __toString()
-    {
-        return $this->libelle;
     }
 
     public function getId(): ?int

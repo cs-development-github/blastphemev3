@@ -4,6 +4,8 @@ twig:
     globals:
         app_version: '%env(APP_VERSION)%'
         path_upload_image_user: '%upload.user%'
+        path_upload_image_couverture: '%upload.couverture%'
+        path_upload_image_articleCover: '%upload.articleContent%'
 when@test:
     twig:
         strict_variables: true

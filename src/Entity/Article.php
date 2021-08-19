@@ -56,9 +56,15 @@ class Article
      */
     private $auteur;
 
+    /**
+     * @ORM\OneToMany(targetEntity=ContenuArticle::class, mappedBy="article", orphanRemoval=true)
+     */
+    private $contenuArticles;
+
     public function __construct()
     {
         $this->tags = new ArrayCollection();
+        $this->contenuArticles = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -159,6 +165,36 @@ class Article
     public function setAuteur(?User $auteur): self
     {
         $this->auteur = $auteur;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ContenuArticle[]
+     */
+    public function getContenuArticles(): Collection
+    {
+        return $this->contenuArticles;
+    }
+
+    public function addContenuArticle(ContenuArticle $contenuArticle): self
+    {
+        if (!$this->contenuArticles->contains($contenuArticle)) {
+            $this->contenuArticles[] = $contenuArticle;
+            $contenuArticle->setArticle($this);
+        }
+
+        return $this;
+    }
+
+    public function removeContenuArticle(ContenuArticle $contenuArticle): self
+    {
+        if ($this->contenuArticles->removeElement($contenuArticle)) {
+            // set the owning side to null (unless already changed)
+            if ($contenuArticle->getArticle() === $this) {
+                $contenuArticle->setArticle(null);
+            }
+        }
 
         return $this;
     }
